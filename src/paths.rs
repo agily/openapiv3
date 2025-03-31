@@ -77,6 +77,7 @@ impl PathItem {
     .filter_map(|(method, maybe_op)| maybe_op.as_ref().map(|op| (method, op)))
   }
 
+  /// Returns an iterator of mutable references to the [Operation]s in the [PathItem].
   pub fn iter_mut(&mut self) -> impl Iterator<Item = (&str, &'_ mut Operation)> {
     vec![
       ("get", &mut self.get),

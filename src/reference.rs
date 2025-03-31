@@ -63,6 +63,13 @@ impl<T> ReferenceOr<T> {
             ReferenceOr::Item(i) => Some(i),
         }
     }
+
+    pub fn as_item_mut(&mut self) -> Option<&mut T> {
+        match self {
+            ReferenceOr::Reference { .. } => None,
+            ReferenceOr::Item(i) => Some(i),
+        }
+    }
 }
 
 impl<T> ReferenceOr<Box<T>> {
